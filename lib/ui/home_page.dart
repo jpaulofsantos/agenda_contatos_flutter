@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold( // 3 - criando scaffold
       appBar: AppBar( // 4 - appbar
         title: Text("Contatos"),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.indigo,
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           _showContactPage();
         },
         child: Icon(Icons.add),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.indigoAccent,
       ),
       body: ListView.builder(// 6 - add ListView no body
           padding: EdgeInsets.all(10.0),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               "Ligar",
                               style: TextStyle(
-                                  color: Colors.red, fontSize: 20.0
+                                  color: Colors.indigoAccent, fontSize: 20.0
                               ),
                             )
                         ),
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             "Editar",
                             style: TextStyle(
-                                color: Colors.red, fontSize: 20.0
+                                color: Colors.indigoAccent, fontSize: 20.0
                             ),
                           )
                       ),
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             "Excluir",
                             style: TextStyle(
-                                color: Colors.red, fontSize: 20.0
+                                color: Colors.indigoAccent, fontSize: 20.0
                             ),
                           )
                       ),

@@ -45,7 +45,7 @@ class _ContactPageState extends State<ContactPage> {
         onWillPop: _requestPop, //chama a função criada para gerenciar a seta "voltar"
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.indigo,
             title: Text(_editedContact.name ?? "Novo Contato"), //caso tenha nome, pega do _editContact, caso não, "Novo Contato"
             centerTitle: true,
           ),
@@ -58,7 +58,7 @@ class _ContactPageState extends State<ContactPage> {
               }
             },
             child: Icon(Icons.save),
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.indigoAccent,
           ),
           body: SingleChildScrollView( // criando o body
             padding: EdgeInsets.all(10.0), // add padding
