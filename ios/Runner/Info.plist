@@ -39,7 +39,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<key>UIViewCon<key>NSPhotoLibraryUsageDescription</key>
+                      <string>Tirar fotos dos contatos.</string>
+                      <key>NSCameraUsageDescription</key>
+                      <string>Selecionar uma foto de contato da galeria.</string>
+                      <key>NSMicrophoneUsageDescription</key>
+                      <string>Tirar fotos dos contatos.</string>trollerBasedStatusBarAppearance</key>
 	<false/>
+
 </dict>
 </plist>
