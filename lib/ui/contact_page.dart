@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:image_picker/image_picker.dart';
 import 'package:agenda_contatos_flutter/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
 
@@ -77,6 +77,16 @@ class _ContactPageState extends State<ContactPage> {
                         )
                     ),
                   ),
+                  onTap: () { //add imagem ao contato atraves do import ImagePicker
+                    ImagePicker.pickImage(source: ImageSource.gallery).then((file) {
+                      if(file == null) return;
+                      setState(() {
+                        _editedContact.picture = file.path;
+                      });
+                    }
+                    );
+
+                  },
                 ),
                 TextField(
                   focusNode: _nameFocus,
