@@ -4,6 +4,8 @@ import 'package:agenda_contatos_flutter/helpers/contact_helper.dart';
 import 'package:agenda_contatos_flutter/ui/contact_page.dart';
 import 'package:flutter/material.dart';
 
+enum OrderOptions {orderaz, orderza}
+
 class HomePage extends StatefulWidget { //1 - criando o stful
   @override
   _HomePageState createState() => _HomePageState();
@@ -28,6 +30,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold( // 3 - criando scaffold
       appBar: AppBar( // 4 - appbar
+        actions: [
+          PopupMenuButton<OrderOptions>( //menu para ordenar os nomes dos contatos
+              itemBuilder: (context) => <PopupMenuEntry<OrderOptions>> [
+                const PopupMenuItem<OrderOptions>(
+                    child: Text("Ordenar de A-Z"),
+                    value: OrderOptions.orderaz,
+                ),
+                const PopupMenuItem<OrderOptions>(
+                  child: Text("Ordenar de Z-A"),
+                  value: OrderOptions.orderza,
+                )
+              ],
+            onSelected: _orderList,
+
+          )
+        ],
         title: Text("Contatos"),
         backgroundColor: Colors.indigo,
         centerTitle: true,
@@ -102,6 +120,28 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _orderList(OrderOptions result) { //ordenando a lista de contatos
+    switch(result) {
+      case OrderOptions.orderaz:
+
+        contacts.sort((a, b) {
+          return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+        });
+        break;
+      case OrderOptions.orderza:
+
+        contacts.sort((a, b) {
+          return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+        });
+        break;
+    }
+
+    setState(() {
+
+    });
+
+  }
+
   void _showOptions(BuildContext context, int index) {
     showModalBottomSheet(
         context: context,
@@ -124,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               "Ligar",
                               style: TextStyle(
-                                  color: Colors.indigoAccent, fontSize: 20.0
+                                  color: Colors.indigoAccent, fontSize: 15.0
                               ),
                             )
                         ),
@@ -139,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             "Editar",
                             style: TextStyle(
-                                color: Colors.indigoAccent, fontSize: 20.0
+                                color: Colors.indigoAccent, fontSize: 15.0
                             ),
                           )
                       ),
@@ -158,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             "Excluir",
                             style: TextStyle(
-                                color: Colors.indigoAccent, fontSize: 20.0
+                                color: Colors.indigoAccent, fontSize: 15.0
                             ),
                           )
                       ),
