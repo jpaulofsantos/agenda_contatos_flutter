@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:agenda_contatos_flutter/helpers/contact_helper.dart';
 import 'package:agenda_contatos_flutter/ui/contact_page.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +118,8 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.all(10.0),
                         child: FlatButton(
                             onPressed: () {
-
+                              launch("tel: ${contacts[index].phone}");
+                              Navigator.pop(context);
                             },
                             child: Text(
                               "Ligar",
