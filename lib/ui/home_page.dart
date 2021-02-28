@@ -81,6 +81,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
+                    fit: BoxFit.cover,
                     image: contacts[index].picture != null ?
                       FileImage(File(contacts[index].picture)) :
                         AssetImage("images/Profile.png")
@@ -155,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.min, //ajusta os botões para ocupar o menor espaço  possivel ao mostra-los (parte inferior)
                   children: [
                     Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(5.0),
                         child: FlatButton(
                             onPressed: () {
                               launch("tel: ${contacts[index].phone}");
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(5.0),
                       child: FlatButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -185,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(5.0),
                       child: FlatButton(
                           onPressed: () {
                             helper.deleteContact(contacts[index].id);
